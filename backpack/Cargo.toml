@@ -1,0 +1,24 @@
+[package]
+name = "web-server-rs"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Axum-based web server with OpenAPI generators and Tako optimizations"
+repository = "https://github.com/yonasBSD/env.rs"
+readme = "README.md"
+keywords = ["env", "rust"]
+
+[dependencies]
+anyhow = "1.0.100"
+http = "1.4.0"
+tako-rs = { git = "https://github.com/yonasBSD/tako", features = ["http2", "metrics-opentelemetry", "metrics-prometheus", "plugins", "simd", "tls", "vespera", "zero-copy-extractors", "zstd"] }
+tokio = { version = "1.49.0", features = ["macros", "rt-multi-thread"] }
+serde_json = "1.0.149"
+
+[[example]]
+name = "openapi"
+path = "examples/openapi/src/main.rs"
+
+[features]
+default = []
+tracing = ["tako-rs/tako-tracing"]
