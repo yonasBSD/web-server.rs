@@ -22,3 +22,6 @@ path = "examples/openapi/src/main.rs"
 [features]
 default = []
 tracing = ["tako-rs/tako-tracing"]
+
+[package.metadata.cargo-machete]
+ignored = ["tako-rs"]

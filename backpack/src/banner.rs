@@ -24,7 +24,7 @@ pub fn print_address(addr: SocketAddr) -> String {
     format!("{GREEN}{display}{RESET}")
 }
 
-pub fn print(config: BannerConfig<'_>) {
+pub fn print(config: &BannerConfig<'_>) {
     let addr: SocketAddr = config.addr.parse().unwrap();
 
     println!(
