@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
+        uses: step-security/harden-runner@e3f713f2d8f53843e71c69a996d56f51aa9adfb9 # v2.14.1
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -104,7 +104,7 @@ jobs:
 
       # Attestations
       - name: Attest SBOMs
-        uses: actions/attest-sbom@7d9b9d6f3a2efd49c548db5f7b061f147d16bed8 # main
+        uses: actions/attest-sbom@4651f806c01d8637787e274ac3bdf724ef169f34 # v3.0.0
         with:
           sbom-path: 'sbom-*.spdx.json'
 
