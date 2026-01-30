@@ -1,7 +1,7 @@
-//! OpenAPI documentation example for Tako.
+//! `OpenAPI` documentation example for Tako.
 //!
-//! This example demonstrates how to use route-level OpenAPI metadata
-//! to generate an OpenAPI specification from your Tako routes.
+//! This example demonstrates how to use route-level `OpenAPI` metadata
+//! to generate an `OpenAPI` specification from your Tako routes.
 //!
 //! Run with: cargo run --example openapi
 
@@ -46,7 +46,8 @@ pub struct ServerConfig {
 }
 
 impl ServerConfig {
-    pub fn new() -> Self {
+    #[must_use]
+    pub const fn new() -> Self {
         Self {
             routes: Vec::new(),
             address: "0.0.0.0",
@@ -119,7 +120,7 @@ macro_rules! Json {
     };
 }
 
-/// A route definition with OpenAPI metadata.
+/// A route definition with `OpenAPI` metadata.
 pub struct Route {
     pub method: Method,
     pub path: &'static str,
@@ -145,7 +146,7 @@ pub fn setup_router(router: &mut Router, routes: &[Route]) {
     }
 }
 
-/// Full server + OpenAPI setup.
+/// Full server + `OpenAPI` setup.
 pub async fn serve(config: ServerConfig) -> Result<()> {
     let bind = format!("{}:{}", config.address, config.port);
     let listener = TcpListener::bind(&bind).await?;
@@ -179,7 +180,7 @@ pub async fn serve(config: ServerConfig) -> Result<()> {
         Scalar::new("/openapi.json").title(format!("{} - Scalar", config.title))
     });
 
-    banner::print(banner::BannerConfig {
+    banner::print(&banner::BannerConfig {
         name: "http server",
         version: env!("CARGO_PKG_VERSION"),
         tagline: "High performance, minimalist Rust web service",

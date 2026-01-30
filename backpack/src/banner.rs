@@ -28,7 +28,7 @@ pub fn print(config: &BannerConfig<'_>) {
     let addr: SocketAddr = config.addr.parse().unwrap();
 
     println!(
-        r#"
+        r"
    ____    __
   / __/___/ /  ___
  / _// __/ _ \/ _ \
@@ -37,7 +37,7 @@ pub fn print(config: &BannerConfig<'_>) {
 {tagline}
 
  ⇨ {name} listening on {addr}
-"#,
+",
         version = config.version,
         tagline = config.tagline,
         name = config.name,
